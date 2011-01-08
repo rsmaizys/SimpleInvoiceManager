@@ -1,0 +1,111 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+:focus {
+	outline: 0;
+}
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#header {
+    background: transparent url('/images/back_header.png') repeat-x;
+    height:50px;
+    margin-bottom:20px;
+}
+
+#content, .content {
+    width:800px;
+    margin:0 auto;
+}
+
+#footer {
+    background: transparent url('/images/back_footer.png') repeat-x;
+    height:50px;
+}
+#footer p {
+    color:#fff;
+    text-align: center;
+    padding: 15px 0;
+}
+table {
+    margin: 0 0 0 20px;
+}
+thead {
+    background:#666666;
+}
+thead td {
+      border:1px solid #fff;
+    color:#fff;
+}
+td {
+    padding:10px;
+    border:1px solid #666666;
+    color:#666666;
+}
+h1, h2 {
+    color:#fff;
+}
+h1 {
+    font-size:16px;
+    padding:10px 0 20px 0;
+}
+h2 {
+    font-size:14px;
+    padding:5px 0 10px 0;
+}
+.success, .error {
+    color:#fff;
+    border:1px solid #fff;
+    padding:10px;
+    width:200px;
+}
+
+.success {
+    background: #99cc33;
+}
+.error {
+    background: #ff9999;
+}
+h1 a {
+    color:#fff;
+}
+a {
+    color:#666666;
+    text-decoration:none;
+}
