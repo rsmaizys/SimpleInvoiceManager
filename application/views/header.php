@@ -2,7 +2,7 @@
 <html lang="en" xml:lang="en"> <!--- language --->
 <head>
     <meta charset="utf-8" />
-    <title>InvoiceManagement by Richard Smaizys</title>
+    <title>Company Name - Invoice Management</title>
     <link rel="stylesheet" href="/assets/styles/style.css" type="text/css" media="screen" />
 
     <meta name="Description" content=''/>
@@ -17,8 +17,8 @@
     <div id="wrapper">
         <div id="header">
             <div class="content">
-                <h1><a href="<?php echo site_url('/'); ?>">Your Invoice Management</a></h1>
-                <h2>As Simple as it can be.</h2>
+                <a class="sign_out_button" href="<?php echo site_url('/login/out'); ?>">Sign Out</a>
+                <h1><a href="<?php echo site_url('/'); ?>">Company Name</a></h1>
             </div>
         </div>
         <div id="content">
