@@ -23,6 +23,8 @@ class Main extends Controller {
            $invoice['id_client'] = $this->clients_model->get_client_name($invoice['id_client']);
         }
         $data['clients'] = $this->clients_model->get_clients();
+        $data['current_amount'] = $this->invoice_model->calculate_current_amount();
+        $data['done_amount'] = $this->invoice_model->calculate_done_amount();
         $this->load->view('template', $data);
     }
 }

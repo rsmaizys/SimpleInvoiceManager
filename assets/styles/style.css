@@ -86,6 +86,11 @@ a.sign_out_button {
 a.sign_out_button:hover {
     color:#fff;
 }
+.current_amount {
+    color:green;
+    float:left;
+    padding: 20px 0;
+}
 
 /* CONTENT */
 #content, .content {

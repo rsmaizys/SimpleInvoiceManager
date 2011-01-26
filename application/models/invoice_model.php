@@ -55,4 +55,27 @@ class Invoice_model extends Model {
                                                                    'value'=>$id_invoice));
     }
 
+    function calculate_current_amount()
+    {
+        $data = $this->get_invoices();
+        $sum = (int) 0;
+        foreach($data as $item)
+        {
+            $sum += $item['cost'];
+        }
+        return $sum;
+    }
+
+    function calculate_done_amount()
+    {
+        $data = $this->model_model->get($this->table,
+                                       array('field'=>'id_status', 'value'=>'2'),
+                                       array('field'=>'id_invoice','how'=>'DESC'));
+        $sum = (int) 0;
+        foreach($data as $item)
+        {
+            $sum += $item['cost'];
+        }
+        return $sum;
+    }
 }

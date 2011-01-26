@@ -15,6 +15,8 @@ class Invoice extends Controller {
 
     function index()
     {
+        $data['current_amount'] = $this->invoice_model->calculate_current_amount();
+        $data['done_amount'] = $this->invoice_model->calculate_done_amount();
         $data['template'] = 'invoice_edit';
         $this->load->view('template', $data);
     }
@@ -83,7 +85,9 @@ class Invoice extends Controller {
                 $this->load->model('clients_model');
                 $data['clients'] = $this->clients_model->get_clients();
                 // - 
-                $data['status'] = $this->invoice_model->get_human_status($data['invoice']['id_status']);                
+                $data['status'] = $this->invoice_model->get_human_status($data['invoice']['id_status']);
+                $data['current_amount'] = $this->invoice_model->calculate_current_amount();
+                $data['done_amount'] = $this->invoice_model->calculate_done_amount();
                 $data['template'] = 'invoice_edit';
                 $this->load->view('template', $data);
             }
