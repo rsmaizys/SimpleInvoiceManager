@@ -1,7 +1,7 @@
-<form action="<?php echo site_url('invoice/create'); ?>" method="POST">
+<form action="" method="POST">
     <input type="text" name="cost" class="addnewinput" onclick="this.value=(this.value=='Cost')?'':this.value;" onblur="this.value = (this.value=='')?'Cost':this.value;"  value="Cost" />
     <input type="text" name="subject" class="addnewinput"  onclick="this.value=(this.value=='Subject')?'':this.value;" onblur="this.value = (this.value=='')?'Subject':this.value;"  value="Subject" />
-    <select name="id_client">
+    <select id="client" name="id_client">
         <option value="0" selected="selected">-- Client --</option>
         <?php
         if(is_array($clients))
@@ -9,7 +9,7 @@
                 echo '<option value="'.$client['id_client'].'">'.$client['name'].'</option>';
         ?>
     </select>
-    <input type="submit" name="submit_invoice" value="Create Invoice" class="addnewbutton" />
+    <input type="submit" id="submit_invoice" name="submit_invoice" value="Create Invoice" class="addnewbutton" />
 </form>
 <a href="<?php echo site_url('client'); ?>">Add Client</a>
 <br /><br />

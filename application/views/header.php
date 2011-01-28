@@ -11,6 +11,27 @@
     <meta name="Robots" content="all, noindex, nofollow"/>
     <meta name="Googlebot" content="all, noindex, nofollow"/>
 
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('form').submit(function() {
+                $.ajax({
+                  url: '<?php echo site_url('invoice/create'); ?>',
+                  type: "POST",
+                  data: ({ ajax     : '1'}),
+                  success: function(response) {
+                        alert(response);
+                  }
+                });
+                return false;
+            });
+            alert('r');
+        });
+
+
+    </script>
+
 
 </head>
 <body>

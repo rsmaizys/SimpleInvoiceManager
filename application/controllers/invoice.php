@@ -23,7 +23,7 @@ class Invoice extends Controller {
 
     function create()
     {
-        if($this->input->post('submit_invoice'))
+        if($this->input->post('ajax') == '1')
         {
             $newInvoice['id_client'] = $this->input->xss_clean($this->input->post('id_client'));
             $newInvoice['subject'] = $this->input->xss_clean($this->input->post('subject'));
@@ -31,14 +31,13 @@ class Invoice extends Controller {
             $newInvoice['date'] = date("Y-m-d");
             if($this->invoice_model->add_invoice($newInvoice))
             {
-                $this->session->set_flashdata('msg', 'Done');
+                echo "TRUE";
             }
             else
             {
-                $this->session->set_flashdata('error', 'Can not create invoice');
+                echo "FALSE";
             }
         }
-        redirect('/', 'refresh');
     }
 
     function close($id_invoice)
