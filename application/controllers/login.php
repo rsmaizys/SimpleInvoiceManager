@@ -22,7 +22,7 @@ class Login extends Controller {
             $password = $this->input->xss_clean($this->input->post('password'));
             if($this->login_model->try_login($username, $password))
             {
-                $this->session->set_userdata('status', md5('yes_logged'));
+                $this->session->set_userdata('status', md5('true'));
             }
         }
         redirect('/', 'refresh');
