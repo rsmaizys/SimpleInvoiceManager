@@ -1,3 +1,4 @@
+<div id="add_invoice_form">
 <form action="" method="POST">
     <input type="text" name="cost" class="addnewinput" onclick="this.value=(this.value=='Cost')?'':this.value;" onblur="this.value = (this.value=='')?'Cost':this.value;"  value="Cost" />
     <input type="text" name="subject" class="addnewinput"  onclick="this.value=(this.value=='Subject')?'':this.value;" onblur="this.value = (this.value=='')?'Subject':this.value;"  value="Subject" />
@@ -11,6 +12,7 @@
     </select>
     <input type="submit" id="submit_invoice" name="submit_invoice" value="Create Invoice" class="addnewbutton" />
 </form>
+</div>
 <a href="<?php echo site_url('client'); ?>">Add Client</a>
 <br /><br />
 

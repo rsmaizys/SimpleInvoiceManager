@@ -25,7 +25,7 @@ class Login extends Controller {
                 $this->session->set_userdata('status', md5('true'));
             }
         }
-        redirect('/', 'refresh');
+       redirect('/', 'refresh');
     }
 
     function logout()

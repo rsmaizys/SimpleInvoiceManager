@@ -14,7 +14,7 @@
     <script type="text/javascript" src="/assets/js/jquery.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('form').submit(function() {
+            $('#add_invoice_form form').submit(function() {
                 $.ajax({
                   url: '<?php echo site_url('invoice/create'); ?>',
                   type: "POST",
