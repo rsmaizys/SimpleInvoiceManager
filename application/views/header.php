@@ -13,23 +13,27 @@
 
     <script type="text/javascript" src="/assets/js/jquery.js"></script>
     <script type="text/javascript">
-
         $(document).ready(function() {
             $('form').submit(function() {
                 $.ajax({
                   url: '<?php echo site_url('invoice/create'); ?>',
                   type: "POST",
-                  data: ({ ajax     : '1'}),
+                  data: ({ 'ajax'      : '1',
+                           'subject'   : $('input[name="subject"]').val(),
+                           'cost'      : $('input[name="cost"]').val(),
+                           'id_client' : $('#client').val()
+                        }),
                   success: function(response) {
-                        alert(response);
-                  }
+                                if(response == 'FALSE') {
+                                    alert('Can not add new client');
+                                } else {
+                                    $('#open_invoices_table').html(response).show('slow');
+                                }
+                           }
                 });
                 return false;
             });
-            alert('r');
         });
-
-
     </script>
 
 

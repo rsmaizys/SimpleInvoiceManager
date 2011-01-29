@@ -31,10 +31,13 @@ class Invoice extends Controller {
             $newInvoice['date'] = date("Y-m-d");
             if($this->invoice_model->add_invoice($newInvoice))
             {
-                echo "TRUE";
+                $data = $this->invoice_model->get_open_invoices();
+                //$this->session->set_flashdata('msg', 'Done');
+                $this->load->view('templates/invoices_open_table', $data);
             }
             else
             {
+                //$this->session->set_flashdata('error', 'Can not create new client');
                 echo "FALSE";
             }
         }
@@ -111,7 +114,6 @@ class Invoice extends Controller {
             $data['cost'] = $this->input->post('cost');
             $data['subject'] = $this->input->post('subject');
             $data['id_client'] = $this->input->post('id_client');
-        //    print_r($data);
             if($this->invoice_model->update($data, $data['id_invoice']))
             {
                 $this->session->set_flashdata('msg','Invoice updated.');

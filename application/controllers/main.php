@@ -15,16 +15,13 @@ class Main extends Controller {
 
     function index()
     {
+        $data = $this->invoice_model->get_open_invoices();
         $data['template'] = 'main';
-        $data['invoices'] = $this->invoice_model->get_invoices();
-        foreach($data['invoices'] as &$invoice)
-        {
-           $invoice['id_status'] = $this->invoice_model->get_human_status($invoice['id_status']);
-           $invoice['id_client'] = $this->clients_model->get_client_name($invoice['id_client']);
-        }
-        $data['clients'] = $this->clients_model->get_clients();
         $data['current_amount'] = $this->invoice_model->calculate_current_amount();
         $data['done_amount'] = $this->invoice_model->calculate_done_amount();
+        $data['clients'] = $this->clients_model->get_clients();
+
         $this->load->view('template', $data);
     }
+
 }

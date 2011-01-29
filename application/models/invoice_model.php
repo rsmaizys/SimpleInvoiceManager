@@ -8,6 +8,9 @@ class Invoice_model extends Model {
     {
         parent::Model();
         $this->load->model('model_model');
+        // This is called in other to call another model in this models method
+        // -- it's a walk away to the problem for now.
+        $this->ci = & get_instance();
     }
 
     function add_invoice($data)
@@ -78,4 +81,17 @@ class Invoice_model extends Model {
         }
         return $sum;
     }
+
+    function get_open_invoices()
+    {
+        $this->load->model('clients_model');
+        $data['invoices'] = $this->get_invoices();
+        foreach($data['invoices'] as &$invoice)
+        {
+           $invoice['id_status'] = $this->get_human_status($invoice['id_status']);
+           $invoice['id_client'] = $this->ci->clients_model->get_client_name($invoice['id_client']);
+        }
+        return $data;
+    }
+
 }
