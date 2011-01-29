@@ -38,11 +38,12 @@
     <div id="wrapper">
         <div id="header">
             <div class="content">
+                <?php if($this->uri->segment(1) == '') { ?>
                 <p class="current_amount">
                     Current Amount: <?php echo $current_amount; ?> LTL
                     Done: <?php echo $done_amount; ?> LTL 
                 </p>
- 
+                <?php } ?>
                 <a class="sign_out_button" href="<?php echo site_url('/login/out'); ?>">Sign Out</a>
                 <h1><a href="<?php echo site_url('/'); ?>">Company Name</a></h1>
             </div>
