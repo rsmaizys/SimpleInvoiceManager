@@ -7,10 +7,7 @@ class Invoice extends Controller {
     {
         parent::Controller();
         $this->load->model('invoice_model');
-       if(!$this->session->userdata('status'))
-        {
-            redirect('/login');
-        }
+        check_is_loggedin();
     }
 
     function index()

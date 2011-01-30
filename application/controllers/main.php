@@ -7,10 +7,7 @@ class Main extends Controller {
         parent::Controller();
         $this->load->model('invoice_model');
         $this->load->model('clients_model');
-        if($this->session->userdata('status') != md5('true'))
-        {
-            redirect('/login');
-        }
+        check_is_loggedin();
     }
 
     function index()

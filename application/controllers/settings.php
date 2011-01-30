@@ -6,6 +6,7 @@ class Settings extends Controller {
     {
         parent::Controller();
         $this->load->model('settings_model');
+        check_is_loggedin();
     }
 
     function index()
