@@ -84,7 +84,7 @@
                     Done: <?php echo $done_amount; ?> LTL 
                 </p>
                 <?php } ?>
-                <a class="sign_out_button" href="<?php echo site_url('/login/out'); ?>">Sign Out</a>
+                <a class="sign_out_button" href="<?php echo site_url('/login/logout'); ?>">Sign Out</a>
                 <h1><a href="<?php echo site_url('/'); ?>">Company Name</a></h1>
             </div>
         </div>
