@@ -62,10 +62,13 @@ class Invoice_model extends Model {
     {
         $data = $this->get_invoices();
         $sum = (int) 0;
-        foreach($data as $item)
+        if(is_array($data))
         {
-            $sum += $item['cost'];
-        }
+            foreach($data as $item)
+            {
+                $sum += $item['cost'];
+            }
+        } else return 0;
         return $sum;
     }
 
@@ -86,11 +89,14 @@ class Invoice_model extends Model {
     {
         $this->load->model('clients_model');
         $data['invoices'] = $this->get_invoices();
-        foreach($data['invoices'] as &$invoice)
+        if(is_array($data['invoices']))
         {
-           $invoice['id_status'] = $this->get_human_status($invoice['id_status']);
-           $invoice['id_client'] = $this->ci->clients_model->get_client_name($invoice['id_client']);
-        }
+            foreach($data['invoices'] as &$invoice)
+            {
+               $invoice['id_status'] = $this->get_human_status($invoice['id_status']);
+               $invoice['id_client'] = $this->ci->clients_model->get_client_name($invoice['id_client']);
+            }
+        } else return false;
         return $data;
     }
 

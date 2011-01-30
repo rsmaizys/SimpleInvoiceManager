@@ -124,7 +124,10 @@ class Invoice extends Controller {
     function _get_open_invoices()
     {
         $data = $this->invoice_model->get_open_invoices();
-        $this->load->view('templates/invoices_open_table', $data);
+        if(is_array($data))
+        {
+           $this->load->view('templates/invoices_open_table', $data);
+        }
     }
 
 }

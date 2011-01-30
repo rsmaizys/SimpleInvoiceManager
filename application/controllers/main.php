@@ -16,6 +16,10 @@ class Main extends Controller {
     function index()
     {
         $data = $this->invoice_model->get_open_invoices();
+        if(!is_array($data))
+        {
+            $data['invoices'] = false;
+        }
         $data['template'] = 'main';
         $data['current_amount'] = $this->invoice_model->calculate_current_amount();
         $data['done_amount'] = $this->invoice_model->calculate_done_amount();
