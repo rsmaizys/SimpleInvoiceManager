@@ -2,7 +2,7 @@
 <html lang="en" xml:lang="en"> <!--- language --->
 <head>
     <meta charset="utf-8" />
-    <title>Company Name - Invoice Management</title>
+    <title><?php echo $settings['0']['value']; ?>  - Invoice Management</title>
     <link rel="stylesheet" href="/assets/styles/style.css" type="text/css" media="screen" />
 
     <meta name="Description" content=''/>
@@ -88,7 +88,7 @@
                     <a  href="<?php echo site_url('/settings'); ?>">Settings</a>
                     <a  href="<?php echo site_url('/login/logout'); ?>">Sign Out</a>                   
                 </div>
-                <h1><a href="<?php echo site_url('/'); ?>">Company Name</a></h1>
+                <h1><a href="<?php echo site_url('/'); ?>"><?php echo $settings['0']['value']; ?> </a></h1>
             </div>
         </div>
         <div id="content">

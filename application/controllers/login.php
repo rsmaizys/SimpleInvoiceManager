@@ -11,6 +11,7 @@ class Login extends Controller {
     function index()
     {
         $data['template'] = 'login';
+        $data['settings'] = $this->settings_model->get_settings();
         $this->load->view('template', $data);
     }
 

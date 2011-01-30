@@ -7,6 +7,7 @@ class Client extends Controller {
     {
         parent::Controller();
         $this->load->model('clients_model');
+        $this->load->model('invoice_model');
         check_is_loggedin();
     }
 
@@ -16,6 +17,7 @@ class Client extends Controller {
         $data['clients'] = $this->clients_model->get_clients();
         $data['current_amount'] = $this->invoice_model->calculate_current_amount();
         $data['done_amount'] = $this->invoice_model->calculate_done_amount();
+        $data['settings'] = $this->settings_model->get_settings();
         $this->load->view('template', $data);
     }
 

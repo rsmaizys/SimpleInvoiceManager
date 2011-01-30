@@ -21,7 +21,7 @@ class Main extends Controller {
         $data['current_amount'] = $this->invoice_model->calculate_current_amount();
         $data['done_amount'] = $this->invoice_model->calculate_done_amount();
         $data['clients'] = $this->clients_model->get_clients();
-
+        $data['settings'] = $this->settings_model->get_settings();
         $this->load->view('template', $data);
     }
 
