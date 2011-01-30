@@ -34,6 +34,42 @@
                 return false;
             });
         });
+
+        function closeInvoice(invoiceId) {
+                $.ajax({
+                  url: '<?php echo site_url('invoice/close'); ?>',
+                  type: "POST",
+                  data: ({ 'ajax'       : '1',
+                           'id_invoice' : invoiceId
+                        }),
+                  success: function(response) {
+                                if(response == 'FALSE') {
+                                    alert('Can not close invoice');
+                                } else {
+                                    $('#open_invoices_table').html(response).show('slow');
+                                }
+                           }
+                });
+                return false;
+        }
+
+        function deleteInvoice(invoiceId) {
+                $.ajax({
+                  url: '<?php echo site_url('invoice/delete'); ?>',
+                  type: "POST",
+                  data: ({ 'ajax'       : '1',
+                           'id_invoice' : invoiceId
+                        }),
+                  success: function(response) {
+                                if(response == 'FALSE') {
+                                    alert('Can not delete invoice');
+                                } else {
+                                    $('#open_invoices_table').html(response).show('slow');
+                                }
+                           }
+                });
+                return false;
+        }
     </script>
 
 

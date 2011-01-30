@@ -31,50 +31,45 @@ class Invoice extends Controller {
             $newInvoice['date'] = date("Y-m-d");
             if($this->invoice_model->add_invoice($newInvoice))
             {
-                $data = $this->invoice_model->get_open_invoices();
-                //$this->session->set_flashdata('msg', 'Done');
-                $this->load->view('templates/invoices_open_table', $data);
+                $this->_get_open_invoices();
             }
             else
             {
-                //$this->session->set_flashdata('error', 'Can not create new client');
                 echo "FALSE";
             }
-        }
+        } else { redirect('/', 'refresh'); }
     }
 
-    function close($id_invoice)
+    function close()
     {
-        if(isset($id_invoice))
+        if($this->input->post('ajax') == '1')
         {
-            $id_invoice = $this->input->xss_clean($id_invoice);
+            $id_invoice = $this->input->xss_clean($this->input->post('id_invoice'));
             if($this->invoice_model->close_invoice($id_invoice))
             {
-                $this->session->set_flashdata('msg', 'Done');
+                $this->_get_open_invoices();
             }
             else
             {
-                $this->session->set_flashdata('error', 'Can not close invoice');
+                "FALSE";
             }
-        }
-        redirect('/', 'refresh');
+        } else { redirect('/', 'refresh'); }
     }
 
-    function delete($id_invoice)
+    function delete()
     {
-        if(isset($id_invoice))
+        if($this->input->post('ajax'))
         {
-            $id_invoice = $this->input->xss_clean($id_invoice);
+            $id_invoice = $this->input->xss_clean($this->input->post('id_invoice'));
             if($this->invoice_model->delete($id_invoice))
             {
-                $this->session->set_flashdata('msg', 'Done');
+                $this->_get_open_invoices();
             }
             else
             {
-                $this->session->set_flashdata('error', 'Can not delete invoice');
+                echo "FALSE";
             }
-        }
-        redirect('/', 'refresh');
+        } else { redirect('/', 'refresh'); }
     }
 
     function edit($id_invoice)
@@ -124,6 +119,12 @@ class Invoice extends Controller {
             }
         }
         redirect('/');
+    }
+
+    function _get_open_invoices()
+    {
+        $data = $this->invoice_model->get_open_invoices();
+        $this->load->view('templates/invoices_open_table', $data);
     }
 
 }
