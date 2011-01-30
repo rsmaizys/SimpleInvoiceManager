@@ -79,11 +79,11 @@ a {
 #header h1 a:hover {
     color:#0099cc;
 }
-a.sign_out_button {
+.settings_buttons {
     float:right;
     padding: 20px 0;
 }
-a.sign_out_button:hover {
+.settings_buttons a:hover {
     color:#fff;
 }
 .current_amount {
