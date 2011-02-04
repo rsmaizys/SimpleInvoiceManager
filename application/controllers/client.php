@@ -1,14 +1,12 @@
 <?php
-
 class Client extends Controller {
-
 
     function Client()
     {
         parent::Controller();
+        check_is_loggedin();
         $this->load->model('clients_model');
         $this->load->model('invoice_model');
-        check_is_loggedin();
     }
 
     function index()

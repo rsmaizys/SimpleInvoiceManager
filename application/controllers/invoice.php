@@ -1,13 +1,11 @@
 <?php
-
-
 class Invoice extends Controller {
 
     function Invoice()
     {
         parent::Controller();
-        $this->load->model('invoice_model');
         check_is_loggedin();
+        $this->load->model('invoice_model');
     }
 
     function index()

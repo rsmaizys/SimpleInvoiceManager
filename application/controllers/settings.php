@@ -5,8 +5,8 @@ class Settings extends Controller {
     function Settings()
     {
         parent::Controller();
-        $this->load->model('settings_model');
         check_is_loggedin();
+        $this->load->model('settings_model');
     }
 
     function index()
@@ -30,7 +30,6 @@ class Settings extends Controller {
                     $errors[] = $id_setting;
                 } 
             }
-           // print_r($errors);
             if(is_array($errors) AND (count($errors) >= 1))
             {
                 $errors_ids = (string) '';

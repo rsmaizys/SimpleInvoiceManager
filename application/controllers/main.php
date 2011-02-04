@@ -5,9 +5,9 @@ class Main extends Controller {
     function Main()
     {
         parent::Controller();
+        check_is_loggedin();
         $this->load->model('invoice_model');
         $this->load->model('clients_model');
-        check_is_loggedin();
     }
 
     function index()
