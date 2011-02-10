@@ -28,9 +28,9 @@
         <?php
         if(is_array($clients))
         {
-            $selected = '';
             foreach($clients as $client) 
             {
+                $selected = '';
                 if($client['id_client'] == $invoice['id_client'])
                     $selected = 'selected="selected"';
                 echo '<option value="'.$client['id_client'].'" '.$selected.'>'.$client['name'].'</option>';
