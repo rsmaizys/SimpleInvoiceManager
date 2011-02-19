@@ -84,11 +84,16 @@
                     Done: <?php echo $done_amount; ?> LTL 
                 </p>
                 <?php } ?>
+<<<<<<< HEAD
                 <div class="settings_buttons">
                     <a  href="<?php echo site_url('/settings'); ?>">Settings</a>
                     <a  href="<?php echo site_url('/login/logout'); ?>">Sign Out</a>                   
                 </div>
                 <h1><a href="<?php echo site_url('/'); ?>"><?php echo $settings['0']['value']; ?> </a></h1>
+=======
+                <a class="sign_out_button" href="<?php echo site_url('/login/out'); ?>">Sign Out</a>
+                <h1><a href="<?php echo site_url('/'); ?>">Company Name</a></h1>
+>>>>>>> master
             </div>
         </div>
         <div id="content">
