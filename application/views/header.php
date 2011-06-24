@@ -2,7 +2,7 @@
 <html lang="en" xml:lang="en"> <!--- language --->
 <head>
     <meta charset="utf-8" />
-    <title><?php echo $settings['0']['value']; ?>  - Invoice Management</title>
+    <title><?php echo $settings['0']['value']; ?>  - Invoice Management a</title>
     <link rel="stylesheet" href="/assets/styles/style.css" type="text/css" media="screen" />
 
     <meta name="Description" content=''/>
