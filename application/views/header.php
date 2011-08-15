@@ -2,7 +2,7 @@
 <html lang="en" xml:lang="en"> <!--- language --->
 <head>
     <meta charset="utf-8" />
-    <title><?php echo $settings['0']['value']; ?>  - Invoice Management a</title>
+    <title><?php echo $settings['0']['value']; ?>  - Invoice Management</title>
     <link rel="stylesheet" href="/assets/styles/style.css" type="text/css" media="screen" />
 
     <meta name="Description" content=''/>
@@ -70,6 +70,39 @@
                 });
                 return false;
         }
+        function showCommentForm(clientId)
+        {            
+            $("#client_"+clientId).show();
+            $("#button_show_"+clientId).hide();
+            $("#button_hide_"+clientId).show();
+            return false;
+        }
+        function hideCommentForm(clientId)
+        {            
+            $("#client_"+clientId).hide();
+            $("#button_show_"+clientId).show();
+            $("#button_hide_"+clientId).hide();            
+            return false;
+        }        
+        function addComment(clientId) {
+            $.ajax({
+              url: '<?php echo site_url('client/addcomment'); ?>',
+              type: "POST",
+              data: ({ 'ajax'       : '1',
+                       'id_client'  : clientId,
+                       'comment'    : $("#comment_"+clientId).val()
+                    }),
+              success: function(response) {
+                            if(response == 'FALSE') {
+                                alert('Can not add comment');
+                            } else {
+                                $("#comment_"+clientId).val('');
+                                hideCommentForm(clientId);                                
+                            }
+                       }
+            });
+            return false;        
+        }
     </script>
 
 
@@ -85,6 +118,7 @@
                 </p>
                 <?php } ?>
                 <div class="settings_buttons">
+                    <a  href="<?php echo site_url('/clients'); ?>">Settings</a>
                     <a  href="<?php echo site_url('/settings'); ?>">Settings</a>
                     <a  href="<?php echo site_url('/login/logout'); ?>">Sign Out</a>                   
                 </div>

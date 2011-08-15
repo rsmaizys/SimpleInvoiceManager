@@ -3,6 +3,7 @@
 class Clients_model extends Model {
 
     private $_table = 'clients';
+    private $_comments_table = 'clients_comments';
 
     function Clients_model()
     {
@@ -32,6 +33,11 @@ class Clients_model extends Model {
                                                                     'value'=>$id_client));
 
         return $client_info['name'];
+    }
+    
+    function add_new_comment($data)
+    {
+        return $this->model_model->insert($this->_comments_table, $data);
     }
 
 }

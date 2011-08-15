@@ -51,5 +51,29 @@ class Client extends Controller {
         }
         redirect('/client');
     }
+    
+    function addcomment()
+    {
+        if($this->input->post('ajax'))
+        {
+            $fields = array("id_client", "comment");
+            foreach($fields as $field)
+            {
+                if($this->input->post($field))
+                {
+                    $data[$field] = $this->input->post($field);
+                }
+            }
+            if($this->clients_model->add_new_comment($data))
+            {
+                echo "TRUE";
+            }
+            else
+            {
+                echo "FALSE";
+            }
+        } else { redirect('/', 'refresh'); }
+
+    }
 
 }

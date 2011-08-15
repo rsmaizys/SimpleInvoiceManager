@@ -58,3 +58,10 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id_user`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
+
+CREATE TABLE `clients_comments` (
+`id_client_comment` INT NOT NULL AUTO_INCREMENT,
+`id_client` INT NOT NULL,
+`comment` TEXT,
+PRIMARY KEY(id_client_comment)
+);

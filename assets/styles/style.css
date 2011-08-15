@@ -114,6 +114,11 @@ td {
     color:#666666;
 }
 
+.quick_comment {
+    width:400px;
+    height:100px;
+}
+
 
 /* FOOTER */
 #footer {
