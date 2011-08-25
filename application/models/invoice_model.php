@@ -94,10 +94,18 @@ class Invoice_model extends Model {
             foreach($data['invoices'] as &$invoice)
             {
                $invoice['id_status'] = $this->get_human_status($invoice['id_status']);
-               $invoice['id_client'] = $this->ci->clients_model->get_client_name($invoice['id_client']);
+               $invoice['client'] = $this->ci->clients_model->get_client_name($invoice['id_client']);
             }
         } else return false;
         return $data;
+    }
+    
+    function get_client_invoices($id_client)
+    {
+        return $this->model_model->get($this->table,
+                                       array('field'=>'id_client', 'value'=>$id_client),
+                                       array('field'=>'id_invoice','how'=>'DESC'));
+       
     }
 
 }

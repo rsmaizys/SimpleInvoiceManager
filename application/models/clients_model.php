@@ -15,6 +15,17 @@ class Clients_model extends Model {
     {
         return $this->model_model->get($this->_table);
     }
+    
+    function get_client($id_client)
+    {
+        $result =  $this->model_model->get($this->_table, array('field'=>'id_client', 'value'=>$id_client));
+        return $result[0];
+    }
+    
+    function get_client_comments($id_client)
+    {
+        return $this->model_model->get($this->_comments_table, array('field'=>'id_client', 'value'=>$id_client));        
+    }
 
     function add_new($data)
     {

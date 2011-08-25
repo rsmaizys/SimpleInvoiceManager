@@ -24,7 +24,7 @@
         {
             echo '<tr>';
             echo '<td>'.$client['id_client'].'</td>';
-            echo '<td>'.$client['name'].'</td>';
+            echo '<td><a href="'.site_url('/client/view/'.$client['id_client']).'">'.$client['name'].'</a></td>';
             echo '<td>
                       <a id="button_show_'.$client['id_client'].'" onclick="showCommentForm('.$client['id_client'].');" href="#" alt="Add comment">Add comment</a>
                       <a id="button_hide_'.$client['id_client'].'" onclick="hideCommentForm('.$client['id_client'].');" href="#" alt="Hide" style="display:none;">Hide Form</a>    

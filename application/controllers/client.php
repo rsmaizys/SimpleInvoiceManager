@@ -52,6 +52,25 @@ class Client extends Controller {
         redirect('/client');
     }
     
+    function view($id_client)
+    {
+        if(isset($id_client) && $id_client != "")
+        {
+            $data['template'] = 'client_view';
+            $data['client'] = $this->clients_model->get_client($id_client);
+            $data['client']['comments'] = $this->clients_model->get_client_comments($id_client);
+                        
+            $client_invoices = $this->invoice_model->get_client_invoices($id_client);
+            $data['client']['income'] = $this->_get_invoices_income($client_invoices, '2');           
+            $data['client']['ongoing'] = $this->_get_invoices_income($client_invoices, '1');            
+            
+            $data['current_amount'] = $this->invoice_model->calculate_current_amount();
+            $data['done_amount'] = $this->invoice_model->calculate_done_amount();
+            $data['settings'] = $this->settings_model->get_settings();
+            $this->load->view('template', $data);            
+        } else { redirect('/client'); }
+    }
+    
     function addcomment()
     {
         if($this->input->post('ajax'))
@@ -75,5 +94,19 @@ class Client extends Controller {
         } else { redirect('/', 'refresh'); }
 
     }
+    
+    function _get_invoices_income($invoices, $status)
+    {
+        $result = (int) 0;
+        foreach($invoices as $invoice)
+        {
+            if($invoice['id_status'] == $status)
+            {
+                $result = $result + $invoice['cost'];
+            }
+        }
+        return $result;
+    }
+    
 
 }

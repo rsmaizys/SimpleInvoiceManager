@@ -13,7 +13,8 @@
     <input type="submit" id="submit_invoice" name="submit_invoice" value="Create Invoice" class="addnewbutton" />
 </form>
 </div>
-<a href="<?php echo site_url('client'); ?>">Add Client</a>
+<a href="<?php echo site_url('client'); ?>">Add Client</a> | 
+<a href="<?php echo site_url('client'); ?>">Clients</a>
 <br /><br />
 
 <div id="open_invoices_table">
@@ -42,7 +43,7 @@
             echo '<td>'.$invoice['cost'].'</td>';
             echo '<td>'.$invoice['subject'].'</td>';
             echo '<td>'.$invoice['date'].'</td>';
-            echo '<td>'.$invoice['client'].'</td>';
+            echo '<td><a href="'.site_url('/client/view/'.$invoice['id_client']).'">'.$invoice['client'].'</a></td>';
             echo '<td>
                       <a href="'.site_url('invoice/close').'/'.$invoice['id_invoice'].'">Close</a>
                       <a href="'.site_url('invoice/edit').'/'.$invoice['id_invoice'].'">Edit</a>

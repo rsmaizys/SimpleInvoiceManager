@@ -19,7 +19,7 @@
             echo '<td>'.$invoice['cost'].'</td>';
             echo '<td>'.$invoice['subject'].'</td>';
             echo '<td>'.$invoice['date'].'</td>';
-            echo '<td>'.$invoice['id_client'].'</td>';
+            echo '<td><a href="'.site_url('/client/view/'.$invoice['id_client']).'">'.$invoice['client'].'</a></td>';
             echo '<td>
                       <a onclick="closeInvoice('.$invoice['id_invoice'].');" href="#">Close</a>
                       <a  href="'.site_url('invoice/edit').'/'.$invoice['id_invoice'].'">Edit</a>
