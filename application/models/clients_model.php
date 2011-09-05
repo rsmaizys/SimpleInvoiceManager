@@ -50,5 +50,11 @@ class Clients_model extends Model {
     {
         return $this->model_model->insert($this->_comments_table, $data);
     }
+    
+    function delete_comment($id_comment)
+    {
+        return $this->model_model->delete($this->_comments_table,
+                                          array('field'=>'id_client_comment', 'value'=>$id_comment));
+    }
 
 }

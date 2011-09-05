@@ -83,6 +83,7 @@ class Client extends Controller {
                     $data[$field] = $this->input->post($field);
                 }
             }
+            $data['date_posted'] = date("Y-m-d");
             if($this->clients_model->add_new_comment($data))
             {
                 echo "TRUE";
@@ -92,7 +93,15 @@ class Client extends Controller {
                 echo "FALSE";
             }
         } else { redirect('/', 'refresh'); }
-
+    }
+    
+    function delete_comment($id_comment, $id_client)
+    {
+        if($this->clients_model->delete_comment($id_comment))
+        {
+             redirect('/client/view/'.$id_client, 'refresh');   
+        }
+        else { redirect('/', 'refresh'); }
     }
     
     function _get_invoices_income($invoices, $status)

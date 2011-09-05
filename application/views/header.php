@@ -84,7 +84,7 @@
             $("#button_hide_"+clientId).hide();            
             return false;
         }        
-        function addComment(clientId) {
+        function addComment(clientId, hide) {
             $.ajax({
               url: '<?php echo site_url('client/addcomment'); ?>',
               type: "POST",
@@ -96,13 +96,20 @@
                             if(response == 'FALSE') {
                                 alert('Can not add comment');
                             } else {
-                                $("#comment_"+clientId).val('');
-                                hideCommentForm(clientId);                                
+                                if(hide == undefined)
+                                {
+                                    $("#comment_"+clientId).val('');
+                                    hideCommentForm(clientId);                                
+                                }
+                                else
+                                {
+                                     location.reload(true);   
+                                }
                             }
                        }
             });
             return false;        
-        }
+        }       
     </script>
 
 
