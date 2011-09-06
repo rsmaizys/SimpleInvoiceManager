@@ -58,5 +58,5 @@
 <form action="<?php site_url('client/addcomment/'); ?>" method="post">
     <input type="hidden" name="id_client" value="<?php $client['id_client']; ?>" />
     <textarea id="comment_<?php echo $client['id_client']; ?>" name="comment_<?php echo $client['id_client']; ?>" class="quick_comment"></textarea><br />
-    <input onclick="addComment(<?php echo $client['id_client']; ?>, true);" id="comment_form_<?php echo $client['id_client']; ?>" type="button" name="submit_client_comment" value="Submit"  />
+    <input style="margin-left:300px;" onclick="addComment(<?php echo $client['id_client']; ?>, true);" id="comment_form_<?php echo $client['id_client']; ?>" type="button" name="submit_client_comment" value="Submit"  />
 </form>

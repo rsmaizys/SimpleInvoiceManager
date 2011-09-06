@@ -125,7 +125,7 @@
                 </p>
                 <?php } ?>
                 <div class="settings_buttons">
-                    <a  href="<?php echo site_url('/clients'); ?>">Settings</a>
+                    <a  href="<?php echo site_url('/client'); ?>">Clients</a>
                     <a  href="<?php echo site_url('/settings'); ?>">Settings</a>
                     <a  href="<?php echo site_url('/login/logout'); ?>">Sign Out</a>                   
                 </div>
